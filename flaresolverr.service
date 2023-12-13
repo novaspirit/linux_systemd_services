@@ -1,0 +1,16 @@
+[Unit]
+Description=FlareSolverr
+After=syslog.target network.target
+
+[Service]
+WorkingDirectory=/root/FlareSolverr/
+Restart=on-failure
+RestartSec=5
+Type=simple
+ExecStart=/usr/bin/python3 /root/FlareSolverr/src/flaresolverr.py
+KillSignal=SIGINT
+TimeoutStopSec=20
+SyslogIdentifier=FlareSolverr
+
+[Install]
+WantedBy=multi-user.target
